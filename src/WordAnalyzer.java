@@ -20,7 +20,7 @@ public class WordAnalyzer
      */
     public char firstRepeatedCharacter()
     {
-        for (int i = 0; i < word.length(); i++)
+        for (int i = 0; i < word.length()-1; i++)
         {
             char ch = word.charAt(i);
             if (ch == word.charAt(i + 1))
@@ -48,7 +48,7 @@ public class WordAnalyzer
 
     private int find(char c, int pos)
     {
-        for (int i = pos; i < word.length(); i++)
+        for (int i = pos+1; i < word.length(); i++)
         {
             if (word.charAt(i) == c)
             {
@@ -66,10 +66,15 @@ public class WordAnalyzer
     public int countGroupsRepeatedCharacters()
     {
         int c = 0;
-        for (int i = 1; i < word.length() - 1; i++)
+        for (int i = 0; i < word.length() - 1; i++)
         {
             if (word.charAt(i) == word.charAt(i + 1)) // found a repetition
             {
+                if (i == 0) {
+                    c++;
+                    continue;
+                }
+
                 if (word.charAt(i - 1) != word.charAt(i)) // it't the start
                     c++;
             }
