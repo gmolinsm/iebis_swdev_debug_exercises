@@ -20,12 +20,18 @@ public class Main {
 
     public static void minningTheBoard(int numberMines) {
         Random random = new Random();
-        while (numberMines > 0) {
-            Integer trial = new Integer(random.nextInt(myBoard.size()));
 
-            if (myBoard.get(trial) instanceof Space) {
-                myBoard.put(trial, new Mine());
-                numberMines--;
+        for (int i = 0; i < myBoard.size(); i++) {
+            myBoard.put(i, new Mine());
+        }
+
+        int allocate = myBoard.size() - numberMines;
+        while (allocate > 0) {
+            Integer trial = random.nextInt(myBoard.size());
+
+            if (myBoard.get(trial) instanceof Mine) {
+                myBoard.put(trial, new Space());
+                allocate--;
             }
         }
     }
