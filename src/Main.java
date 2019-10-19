@@ -1,12 +1,12 @@
 public class Main {
 
-        public static void main(String [] args) {
-            double d = 0.0;
+    public static void main(String [] args) {
+        double d = 0;
 
-            while (d != 1.0) {
-                d += 0.1;
-            }
-
-            System.out.println("d is 1");
+        while (d != 10) {
+            d += 1;
         }
+        d = d/10;
+        System.out.println("d is 1");
+    }
 }
